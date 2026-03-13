@@ -70,6 +70,17 @@ if [ -f "$DOTFILES_DIR/.bashrc" ]; then
     echo -e "${GREEN}.bashrc kopyalandı.${NC}"
 fi
 
+# 4.1 Sistem Dosyaları (sudo yetkisi gerekir)
+echo -e "\n${CYAN}[4.1/5] Sistem yapılandırmaları kopyalanıyor...${NC}"
+if [ -d "$DOTFILES_DIR/system" ]; then
+    echo -e "${CYAN}Sistem dosyaları için sudo yetkisi istenebilir...${NC}"
+    sudo mkdir -p /etc/systemd/coredump.conf.d/
+    if [ -f "$DOTFILES_DIR/system/etc/systemd/coredump.conf.d/99-antigravity.conf" ]; then
+        sudo cp -v "$DOTFILES_DIR/system/etc/systemd/coredump.conf.d/99-antigravity.conf" /etc/systemd/coredump.conf.d/
+        echo -e "${GREEN}Coredump yapılandırması /etc altına kopyalandı.${NC}"
+    fi
+fi
+
 # 5. Son Ayarlar
 echo -e "\n${CYAN}[5/5] Son dokunuşlar...${NC}"
 # Fish shell default yapma (isteğe bağlı)
