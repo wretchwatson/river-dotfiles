@@ -1,0 +1,41 @@
+{
+    "label": "lock",
+    "action": "/home/ridvan/.config/sway/scripts/lock.sh",
+    "text": "Kilitle",
+    "keybind": "l"
+}
+
+{
+    "label": "logout",
+    "action": "riverctl exit",
+    "text": "Çıkış Yap",
+    "keybind": "e"
+}
+
+{
+    "label": "suspend",
+    "action": "/home/ridvan/.config/sway/scripts/lock.sh & disown && systemctl suspend",
+    "text": "Askıya Al",
+    "keybind": "u"
+}
+
+{
+    "label": "shutdown",
+    "action": "systemctl poweroff",
+    "text": "Kapat",
+    "keybind": "s"
+}
+
+{
+    "label": "hibernate",
+    "action": "systemctl hibernate",
+    "text": "Uyut",
+    "keybind": "h"
+}
+
+{
+    "label": "reboot",
+    "action": "systemctl reboot",
+    "text": "Yeniden Başlat",
+    "keybind": "r"
+}

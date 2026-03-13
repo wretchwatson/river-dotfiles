@@ -1,0 +1,87 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Comfortaa", "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #d6dcd5;
+}
+
+tooltip {
+    background: #0e1213;
+    border: 1px solid #ADB6B1;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: #d6dcd5;
+}
+
+#tags, #window, #clock, #pulseaudio, #network, #power-profiles-daemon, #tray, #custom-power {
+    background-color: #0e1213;
+    border: none;
+    border-radius: 8px;
+    padding: 0 12px;
+    margin: 0 4px;
+    color: #d6dcd5;
+}
+
+/* River Etiketleri (Çalışma Alanları) */
+#tags {
+    padding: 0 4px; /* İç butonlara alan tanımak için dış boşluğu azalttık */
+}
+
+#tags button {
+    color: #d6dcd5;
+    background: transparent;
+    padding: 0 8px;
+    margin: 4px 2px;
+    border-radius: 4px;
+    min-height: 10px;
+    box-shadow: none;
+    transition: all 0.3s ease;
+}
+
+#tags button.focused {
+    color: #0e1213;
+    background-color: #30678E;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+#tags button:hover {
+    background-color: #959a95;
+    color: #d6dcd5;
+}
+
+/* Güç Menüsü Butonu Özel */
+#custom-power {
+    color: #30678E;
+    font-size: 14px;
+    padding: 0 14px;
+}
+
+/* Durum Simgeleri Renklendirmeleri */
+#clock {
+    color: #6193B2;
+}
+
+#pulseaudio {
+    color: #457B9F;
+}
+
+#pulseaudio.muted {
+    color: #30678E;
+}
+
+#network {
+    color: #7AA8C2;
+}
+
+#network.disconnected {
+    color: #30678E;
+}

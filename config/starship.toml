@@ -1,0 +1,77 @@
+# starship.toml.template
+# Antigravity tarafından hazırlanan estetik starship yapılandırması (Pywal uyumlu)
+
+format = """
+[░▒▓](#7AA8C2)\
+[ 󰭟 ](bg:#7AA8C2 fg:#0e1213)\
+[](fg:#7AA8C2 bg:#30678E)\
+$directory\
+[](fg:#30678E bg:#959a95)\
+$git_branch\
+$git_status\
+[](fg:#959a95 bg:#0e1213)\
+$nodejs\
+$rust\
+$golang\
+$php\
+[](fg:#0e1213 bg:#0e1213)\
+$time\
+[ ](fg:#0e1213)\
+\n$character"""
+
+right_format = """$cmd_duration"""
+
+[directory]
+style = "fg:#0e1213 bg:#30678E"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = "󱑢 "
+"Music" = "󰝚 "
+"Pictures" = "󰙅 "
+
+[git_branch]
+symbol = ""
+style = "bg:#959a95"
+format = "[[ $symbol $branch ](fg:#ADB6B1 bg:#959a95)]($style)"
+
+[git_status]
+style = "bg:#959a95"
+format = "[[($all_status$ahead_behind )](fg:#7AA8C2 bg:#959a95)]($style)"
+
+[nodejs]
+symbol = ""
+style = "bg:#0e1213"
+format = "[[ $symbol ($version) ](fg:#6193B2 bg:#0e1213)]($style)"
+
+[rust]
+symbol = ""
+style = "bg:#0e1213"
+format = "[[ $symbol ($version) ](fg:#6193B2 bg:#0e1213)]($style)"
+
+[golang]
+symbol = ""
+style = "bg:#0e1213"
+format = "[[ $symbol ($version) ](fg:#6193B2 bg:#0e1213)]($style)"
+
+[php]
+symbol = ""
+style = "bg:#0e1213"
+format = "[[ $symbol ($version) ](fg:#6193B2 bg:#0e1213)]($style)"
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#0e1213"
+format = "[[  $time ](fg:#C6AD91 bg:#0e1213)]($style)"
+
+[cmd_duration]
+min_time = 500
+format = "[ $duration](bold #6193B2)"
+
+[character]
+success_symbol = "[󰄛 ](bold #457B9F)"
+error_symbol = "[󰄛 ](bold #30678E)"

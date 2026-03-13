@@ -1,0 +1,30 @@
+# Wlogout, Wofi, Kitty temasıyla tamamen uyumlu tasarlanmış Mako Yapılandırması
+
+# Font ve Metin Rengi
+font=Comfortaa Bold 11
+text-color=#d6dcd5
+
+# Arka Plan (Şeffaf Siyah) ve Çerçeve (Kiremit Kırmızısı) Rengi
+background-color=#0e1213D9
+border-color=#30678E
+
+# Kenar Kalınlığı ve Ovacıklar
+border-size=3
+border-radius=8
+
+# Boyutlandırma ve Boşluklar
+width=300
+height=150
+margin=20,20,0,0
+padding=15
+
+# Davranışlar ve İkonlar
+default-timeout=6000
+icon-path=/usr/share/icons/Papirus-Dark
+max-icon-size=48
+
+# İsteğe bağlı olarak, bildirimlerin üzerine tıklayınca işlemi kapatır
+on-button-left=dismiss
+
+# Mesaj Biçimi
+format=<b>%s</b>\n%b
