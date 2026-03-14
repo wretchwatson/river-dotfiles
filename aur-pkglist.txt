@@ -1,7 +1,5 @@
 antigravity
 google-chrome
-paru
-paru-debug
 rivercarro
 swaylock-effects
 teams-for-linux
