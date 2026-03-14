@@ -52,6 +52,7 @@ riverctl map normal Super X spawn 'wlogout -b 6'
 riverctl map normal Super B spawn /home/ridvan/.config/river/scripts/wallpaper-picker.sh
 riverctl map normal Super V spawn "cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 riverctl map normal Super P spawn '/home/ridvan/.config/river/scripts/swaylock.sh'
+riverctl map normal Super Y spawn 'mpv "$(wl-paste)"'
 
 # Screenshot
 riverctl map normal Super S spawn 'grim ~/Resimler/$(date +%Y-%m-%d_%H-%m-%s).png && notify-send "📸 Ekran Görüntüsü" "Tam ekran ~/Resimler altına kaydedildi!"'
