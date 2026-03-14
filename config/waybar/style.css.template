@@ -6,6 +6,13 @@
     font-weight: 600;
 }
 
+@keyframes blink {
+    to {
+        background-color: @COLOR1@;
+        color: @FOREGROUND@;
+    }
+}
+
 window#waybar {
     background-color: transparent;
     color: @FOREGROUND@;
@@ -56,6 +63,15 @@ tooltip label {
 #tags button:hover {
     background-color: @COLOR8@;
     color: @FOREGROUND@;
+}
+
+#tags button.urgent {
+    background-color: @COLOR5@;
+    color: @FOREGROUND@;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 /* Güç Menüsü Butonu Özel */
