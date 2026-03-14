@@ -1,6 +1,6 @@
 {
     "label": "lock",
-    "action": "/home/ridvan/.config/sway/scripts/lock.sh",
+    "action": "/home/ridvan/.config/river/scripts/swaylock.sh",
     "text": "Kilitle",
     "keybind": "l"
 }
@@ -14,7 +14,7 @@
 
 {
     "label": "suspend",
-    "action": "/home/ridvan/.config/sway/scripts/lock.sh & disown && systemctl suspend",
+    "action": "/home/ridvan/.config/river/scripts/swaylock.sh & disown && systemctl suspend",
     "text": "Askıya Al",
     "keybind": "u"
 }
@@ -28,7 +28,7 @@
 
 {
     "label": "hibernate",
-    "action": "systemctl hibernate",
+    "action": "/home/ridvan/.config/river/scripts/swaylock.sh & disown && systemctl hibernate",
     "text": "Uyut",
     "keybind": "h"
 }
