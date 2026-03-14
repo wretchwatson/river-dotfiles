@@ -24,6 +24,7 @@ systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESS
 
 # 2. Portal ve Temel Servisler (Environment hazır olduktan sonra)
 systemctl --user restart xdg-desktop-portal xdg-desktop-portal-wlr
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # 3. Ekran ve Monitör (Adaptive Sync)
 wlr-randr --output DP-1 --mode 1920x1080@239.964 --adaptive-sync disabled
@@ -50,6 +51,7 @@ riverctl map normal Super A spawn 'wofi --show drun'
 riverctl map normal Super X spawn 'wlogout -b 6'
 riverctl map normal Super B spawn /home/ridvan/.config/river/scripts/wallpaper-picker.sh
 riverctl map normal Super V spawn "cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+riverctl map normal Super P spawn '/home/ridvan/.config/river/scripts/swaylock.sh'
 
 # Screenshot
 riverctl map normal Super S spawn 'grim ~/Resimler/$(date +%Y-%m-%d_%H-%m-%s).png && notify-send "📸 Ekran Görüntüsü" "Tam ekran ~/Resimler altına kaydedildi!"'
@@ -115,13 +117,18 @@ for mode in normal locked; do
 done
 
 # 6. Görsel Ayarlar ve Renkler
-riverctl background-color 0x0e1213
-riverctl border-color-focused 0x30678E
-riverctl border-color-unfocused 0x959a95
+riverctl background-color 0x0f0a24
+riverctl border-color-focused 0x5D378B
+riverctl border-color-unfocused 0x9f8492
 riverctl border-color-urgent 0xFF0000
 
 # Bütün uygulamalarda CSD'yi kapatıp SSD'yi (River'ın kendi kenarlıklarını) zorla
 riverctl rule-add -app-id '*' ssd
+riverctl rule-add -app-id 'pavucontrol' float
+riverctl rule-add -app-id 'azote' float
+riverctl rule-add -app-id 'nm-connection-editor' float
+riverctl rule-add -app-id 'wlogout' float
+riverctl rule-add -title 'File Operation Progress' float
 
 # 7. Yan Servisleri Başlat (Daemons)
 killall -q waybar mako wl-paste
@@ -129,6 +136,13 @@ waybar &
 mako &
 wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
+
+# Boşta kalma yönetimi (5 dk sonra kilitler, 10 dk sonra ekranı kapatır)
+swayidle -w \
+    timeout 300 '/home/ridvan/.config/river/scripts/swaylock.sh' \
+    timeout 600 'riverctl spawn "wlr-randr --output DP-1 --off"' \
+    resume 'riverctl spawn "wlr-randr --output DP-1 --on"' \
+    before-sleep '/home/ridvan/.config/river/scripts/swaylock.sh' &
 
 # Duvar Kağıdı ve Pywal (No-wallpaper bayrağı ile çökmeyi önleyelim)
 if [ -f "$HOME/.azotebg" ]; then

@@ -1,0 +1,10 @@
+[terminal]
+vt = 1
+
+[initial_session]
+command = "river"
+user = "ridvan"
+
+[default_session]
+command = "tuigreet --time --remember --sessions /usr/share/wayland-sessions --cmd river"
+user = "greeter"
